@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker</title>
+  <meta name="description" content="A simple and elegant habit tracker to build good habits every day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>Habit Tracker</h1>
+      <p id="today-date" class="today-date"></p>
+    </header>
+
+    <!-- Form to add new habits -->
+    <form id="habit-form" class="habit-form">
+      <input 
+        type="text" 
+        id="habit-input" 
+        placeholder="Enter a new habit (e.g. Read 15 mins)..." 
+        required
+        autocomplete="off"
+      >
+      <button type="submit" class="btn-add">Add Habit</button>
+    </form>
+
+    <!-- List container for habits -->
+    <main class="habit-list-container">
+      <div id="empty-state" class="empty-state">
+        <p>No habits added yet. Start by adding one above!</p>
+      </div>
+      <ul id="habit-list" class="habit-list"></ul>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
