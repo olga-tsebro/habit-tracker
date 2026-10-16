@@ -28,14 +28,112 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Animated Background Shapes */
+.bg-shapes {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  -webkit-filter: blur(80px);
+  opacity: 0.6;
+  will-change: transform;
+}
+
+/* Shape 1: Deep Indigo Glow (Top Left) */
+.shape-1 {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(79, 70, 229, 0.15) 60%, transparent 80%);
+  animation: floatShape1 18s ease-in-out infinite alternate;
+}
+
+/* Shape 2: Rich Purple / Violet Glow (Bottom Right) */
+.shape-2 {
+  width: 580px;
+  height: 580px;
+  bottom: -140px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(139, 92, 246, 0.12) 60%, transparent 80%);
+  animation: floatShape2 22s ease-in-out infinite alternate;
+}
+
+/* Shape 3: Soft Cyan / Indigo Glow (Center Right) */
+.shape-3 {
+  width: 440px;
+  height: 440px;
+  top: 40%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(99, 102, 241, 0.1) 60%, transparent 80%);
+  animation: floatShape3 20s ease-in-out infinite alternate;
+}
+
+/* Ambient Floating Keyframes */
+@keyframes floatShape1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(60px, 45px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-35px, 70px, 0) scale(0.95);
+  }
+}
+
+@keyframes floatShape2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-55px, -50px, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(40px, -30px, 0) scale(0.92);
+  }
+}
+
+@keyframes floatShape3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-50px, 45px, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(30px, -40px, 0) scale(0.96);
+  }
+}
+
+/* Respect prefers-reduced-motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Main App Card Container */
 .container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 550px;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 30px;
